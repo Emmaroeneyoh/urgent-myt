@@ -47,6 +47,7 @@ const loginUserModel =  (data) => async  (res) =>{
     }
     return userData
    } catch (error) {
+       console.log('error occured' , error)
     return res.json('error occured')
    }
     
