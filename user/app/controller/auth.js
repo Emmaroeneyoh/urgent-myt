@@ -189,9 +189,9 @@ const resetUserPassword = async (req, res) => {
         return res.status(400).json({
             status_code: 400,
             status: false,
-            message:'invalid signature',
+            message:'token has expired',
             data: [],
-            error: 'invalid signature',
+            error: 'token has expired',
           });
     }
 }

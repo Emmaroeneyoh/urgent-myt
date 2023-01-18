@@ -2,7 +2,8 @@ const { userModel } = require("../../core/db/user.schema");
 const { create_token, handleError } = require("../../core/utils");
 
 const signupUserModel = async (data) => {
-    const {name, email , Harshpassword , latitude , longitude}  = data
+    try {
+        const {name, email , Harshpassword , latitude , longitude}  = data
     const form = await new userModel({
         name:name,
         password:  Harshpassword,
@@ -25,6 +26,9 @@ const signupUserModel = async (data) => {
         
     }
     return userData
+    } catch (error) {
+        handleError(error.message)(res)
+    }
     
 }
 const loginUserModel = async (data) => {
@@ -47,7 +51,7 @@ const loginUserModel = async (data) => {
     }
     return userData
  } catch (error) {
-  handleError(error)(res)
+  handleError(error.message)(res)
  }
     
 }
