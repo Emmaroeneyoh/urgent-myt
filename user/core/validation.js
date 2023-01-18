@@ -1,4 +1,5 @@
-const joi = require('joi')
+const joi = require('joi');
+const { handleError } = require('./utils');
 
 const userSignupValidation = (req, res , next) => {
     const schema = joi.object({
@@ -35,13 +36,7 @@ const userLoginValidation = (req, res , next) => {
         let err = error.details[0].message;
         // let errlen = err.split(' ')
         // console.log('this is length ' , errlen.length)
-        return res.status(400).json({
-            status_code: 400,
-            status: false,
-            message: err,
-            data: [],
-            error: err,
-          });
+        handleError(err)(res)
     }
     return next() 
 }

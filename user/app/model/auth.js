@@ -1,5 +1,5 @@
 const { userModel } = require("../../core/db/user.schema");
-const { create_token } = require("../../core/utils");
+const { create_token, handleError } = require("../../core/utils");
 
 const signupUserModel = async (data) => {
     const {name, email , Harshpassword , latitude , longitude}  = data
@@ -47,7 +47,7 @@ const loginUserModel = async (data) => {
     }
     return userData
  } catch (error) {
-    return false
+  handleError(error)(res)
  }
     
 }
