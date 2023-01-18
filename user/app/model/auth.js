@@ -27,9 +27,9 @@ const signupUserModel = async (data) => {
     return userData
     
 }
-const loginUserModel =  (data) => async  (res) =>{
+const loginUserModel = async (data) => {
+ try {
     const {email , password , }  = data
-   try {
     const userDetails = await userModel.findOne({ email: email });
   
 
@@ -46,10 +46,9 @@ const loginUserModel =  (data) => async  (res) =>{
         
     }
     return userData
-   } catch (error) {
-       console.log('error occured' , error)
-    return res.json('error occured')
-   }
+ } catch (error) {
+    return false
+ }
     
 }
 
