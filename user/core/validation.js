@@ -6,9 +6,7 @@ const userSignupValidation = (req, res , next) => {
         name:joi.string().required(),
         email:joi.string().required().email(),
         password:joi.string().required(),
-        latitude:joi.number().required(),
-        longitude:joi.number().required(),
-       
+        country:joi.string().required(),
       })
       const { error } = schema.validate(req.body)
     if (error) {
@@ -63,7 +61,6 @@ const userforgotpasswordValidation = (req, res , next) => {
 const userResetpasswordValidation = (req, res , next) => {
     const schema = joi.object({
         password:joi.string().required(),
-        id:joi.string().required(),
         token:joi.string().required(),
        
       })

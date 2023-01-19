@@ -14,12 +14,7 @@ const trainee_schema = new schema({
         type:String
     },
     location: {
-        latitude:{
-            type:String
-        },
-        longitude:{
-            type:String
-        },
+        type:String
     } ,
     // passwordVerification: {
     //     token:{

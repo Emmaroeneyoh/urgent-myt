@@ -3,23 +3,19 @@ const { create_token, handleError } = require("../../core/utils");
 
 const signupUserModel = async (data) => {
     try {
-        const {name, email , Harshpassword , latitude , longitude}  = data
+        const {name, email , Harshpassword , country}  = data
     const form = await new userModel({
         name:name,
         password:  Harshpassword,
         email: email,
-        location: {
-            longitude: longitude,
-            latitude : latitude
-        }
+        location: country
       });
     const userDetails = await form.save();
     const token = create_token(userDetails._id)
     const userData = {
         id: userDetails._id,
         name: userDetails.name,
-        latitude: userDetails.location.latitude,
-        longitude: userDetails.location.longitude,
+        location : userDetails.location ,
         email: userDetails.email,
         token,
         role : userDetails.roles
@@ -42,8 +38,7 @@ const loginUserModel = async (data) => {
     const userData = {
         id: userDetails._id,
         name: userDetails.name,
-        latitude: userDetails.location.latitude,
-        longitude: userDetails.location.longitude,
+        location : userDetails.location ,
         email: userDetails.email,
         token,
         role : userDetails.roles

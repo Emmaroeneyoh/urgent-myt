@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const { USER_password_JWT } = require("../../../helper/utils");
 
 const signupUserController = async (req, res, next) => {
-    const { name, email, password, latitude, longitude } = req.body
+    const { name, email, password, country } = req.body
 try {
     const salt = await bcrypt.genSalt();
     const  Harshpassword = await bcrypt.hash(password, salt);
@@ -22,7 +22,7 @@ try {
     }
     
     const data = {
-        name, email , Harshpassword , latitude , longitude 
+        name, email , Harshpassword , country
     }
 
     let trainee = await signupUserModel(data)
@@ -103,7 +103,7 @@ const sendUserNewPasswordLink = async (req, res) => {
       };
       const token = jwt.sign(payload, secret, { expiresIn: '50m' });
      
-      const link = `http://localhost:3000/user/reset_password/${token}`
+      const link = `http://localhost:3000/reset_password/?token=${token}`
 
       //start of nodemailer
       var transporter = nodemailer.createTransport({
