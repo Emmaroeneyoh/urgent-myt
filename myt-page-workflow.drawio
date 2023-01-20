@@ -1,5 +1,5 @@
-<mxfile host="app.diagrams.net" modified="2023-01-20T20:06:36.217Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36" etag="03TRtUjVx1bEbdeNZXQX" version="20.8.10" type="github">
-  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+<mxfile host="app.diagrams.net" modified="2023-01-20T20:32:45.134Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36" etag="mIQF5OiKE0O_MP6fYEns" version="20.8.10" type="github" pages="2">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Course Registration">
     <mxGraphModel dx="2261" dy="1933" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -153,26 +153,23 @@
         <mxCell id="61IgEG6gzt1TAaFlXaz2-46" value="Provide confirmation message to the user" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="210" y="1310" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="61IgEG6gzt1TAaFlXaz2-51" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="61IgEG6gzt1TAaFlXaz2-48" target="61IgEG6gzt1TAaFlXaz2-50">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="61IgEG6gzt1TAaFlXaz2-89" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="61IgEG6gzt1TAaFlXaz2-48" target="rNm54wVMAMMsUZF9oKBz-0">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="270" y="1470" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="61IgEG6gzt1TAaFlXaz2-48" value="Send confirmation email to the user" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="210" y="1390" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="61IgEG6gzt1TAaFlXaz2-56" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="61IgEG6gzt1TAaFlXaz2-50" target="61IgEG6gzt1TAaFlXaz2-55">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="61IgEG6gzt1TAaFlXaz2-62" value="User" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="61IgEG6gzt1TAaFlXaz2-57" target="61IgEG6gzt1TAaFlXaz2-60">
+          <mxGeometry x="-0.6308" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="61IgEG6gzt1TAaFlXaz2-50" value="Send confirmation email to the trainer" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="210" y="1470" width="120" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="61IgEG6gzt1TAaFlXaz2-55" value="Payment" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="210" y="1550" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="61IgEG6gzt1TAaFlXaz2-62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="61IgEG6gzt1TAaFlXaz2-57" target="61IgEG6gzt1TAaFlXaz2-60">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="61IgEG6gzt1TAaFlXaz2-64" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="61IgEG6gzt1TAaFlXaz2-57" target="61IgEG6gzt1TAaFlXaz2-63">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="61IgEG6gzt1TAaFlXaz2-64" value="Trainer" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="61IgEG6gzt1TAaFlXaz2-57" target="61IgEG6gzt1TAaFlXaz2-63">
+          <mxGeometry x="-0.6" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="61IgEG6gzt1TAaFlXaz2-57" value="Who pays&lt;br&gt;the fee?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="94" y="205" width="90" height="90" as="geometry" />
@@ -191,6 +188,93 @@
         </mxCell>
         <mxCell id="61IgEG6gzt1TAaFlXaz2-69" value="Present the user&lt;br&gt;error message" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="560" y="1116" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="gjDQrvKY6FTJQncwkUqa-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="rNm54wVMAMMsUZF9oKBz-0" target="gjDQrvKY6FTJQncwkUqa-0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="Payment distribution&lt;br&gt;Click here for more info" link="data:page/id,qQaR2f7-gfh2DRifzvDY" id="rNm54wVMAMMsUZF9oKBz-0">
+          <mxCell style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+            <mxGeometry x="210" y="1470" width="120" height="70" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="gjDQrvKY6FTJQncwkUqa-0" value="Send confirmation email to the trainer" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="210" y="1590" width="120" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="qQaR2f7-gfh2DRifzvDY" name="Payment distribution">
+    <mxGraphModel dx="1434" dy="764" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="W2eThMdH0M2l-5E66mNu-5" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.567;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="Vc80YpY4gnJGBg2XlNet-4" target="W2eThMdH0M2l-5E66mNu-4">
+          <mxGeometry x="-0.6503" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W2eThMdH0M2l-5E66mNu-7" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="Vc80YpY4gnJGBg2XlNet-4" target="W2eThMdH0M2l-5E66mNu-6">
+          <mxGeometry x="-0.6296" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Vc80YpY4gnJGBg2XlNet-4" value="Did&lt;br&gt;the trainer&lt;br&gt;register via the affiliate?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="495" y="590" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="W2eThMdH0M2l-5E66mNu-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Vc80YpY4gnJGBg2XlNet-6" target="Vc80YpY4gnJGBg2XlNet-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="445" y="450" />
+              <mxPoint x="550" y="450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Vc80YpY4gnJGBg2XlNet-6" value="Lock the trainer fee in the trainer wallet" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="385" y="360" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="W2eThMdH0M2l-5E66mNu-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Vc80YpY4gnJGBg2XlNet-7" target="Vc80YpY4gnJGBg2XlNet-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Vc80YpY4gnJGBg2XlNet-7" value="1.4% from total fee goes to Payment Gateway" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="484" width="120" height="66" as="geometry" />
+        </mxCell>
+        <mxCell id="Vc80YpY4gnJGBg2XlNet-9" value="Trainer" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="Vc80YpY4gnJGBg2XlNet-11" target="Vc80YpY4gnJGBg2XlNet-10">
+          <mxGeometry x="-0.6" relative="1" as="geometry">
+            <mxPoint x="920" y="510" as="sourcePoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W2eThMdH0M2l-5E66mNu-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Vc80YpY4gnJGBg2XlNet-10" target="Vc80YpY4gnJGBg2XlNet-7">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="550" y="480" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="655" y="450" />
+              <mxPoint x="550" y="450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Vc80YpY4gnJGBg2XlNet-10" value="Lock the trainer fee minus website fee (5%) in the trainer wallet" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="595" y="360" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="x97tQQv8cMy9Z1ZYC4bU-1" value="User" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="Vc80YpY4gnJGBg2XlNet-11" target="Vc80YpY4gnJGBg2XlNet-6">
+          <mxGeometry x="-0.5652" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Vc80YpY4gnJGBg2XlNet-11" value="Who pays&lt;br&gt;the fee?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="505" y="260" width="90" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="W2eThMdH0M2l-5E66mNu-4" value="Register 3.6% income in the website DB" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="605" y="860" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="W2eThMdH0M2l-5E66mNu-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="W2eThMdH0M2l-5E66mNu-6" target="W2eThMdH0M2l-5E66mNu-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="W2eThMdH0M2l-5E66mNu-6" value="Lock 10% from 3.6% to Affiliate Wallet" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="375" y="720" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="W2eThMdH0M2l-5E66mNu-8" value="Register 3.24% income in the website DB" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="375" y="860" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
