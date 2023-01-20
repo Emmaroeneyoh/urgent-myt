@@ -16,6 +16,11 @@ const trainee_schema = new schema({
     location: {
         type:String
     } ,
+    phoneNumber: {
+        
+        type: Number,
+        default : ''
+    } ,
     // passwordVerification: {
     //     token:{
     //         type: String ,
