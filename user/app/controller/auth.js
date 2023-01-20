@@ -16,6 +16,7 @@ let clients = new SendMailClient({ url, token });
 
 const signupUserController = async (req, res, next) => {
   const { name, email, password, country } = req.body;
+  const userEmail = email.toLowerCase()
   try {
     const salt = await bcrypt.genSalt();
     const Harshpassword = await bcrypt.hash(password, salt);
@@ -32,7 +33,7 @@ const signupUserController = async (req, res, next) => {
 
     const data = {
       name,
-      email,
+      userEmail,
       Harshpassword,
       country,
     };
@@ -52,8 +53,9 @@ const signupUserController = async (req, res, next) => {
 
 const loginUserController = async (req, res, next) => {
   const { email, password } = req.body;
+  const userEmail = email.toLowerCase()
   try {
-    const userDetails = await userModel.findOne({ email: email });
+    const userDetails = await userModel.findOne({ email: userEmail });
     if (!userDetails) {
       return res.status(400).json({
         status_code: 400,
@@ -75,7 +77,7 @@ const loginUserController = async (req, res, next) => {
       });
     }
     const data = {
-      email,
+      userEmail,
       password,
     };
 

@@ -3,11 +3,11 @@ const { create_token, handleError } = require("../../core/utils");
 
 const signupUserModel = async (data) => {
     try {
-        const {name, email , Harshpassword , country}  = data
+        const {name, userEmail , Harshpassword , country}  = data
     const form = await new userModel({
         name:name,
         password:  Harshpassword,
-        email: email,
+        email: userEmail,
         location: country
       });
     const userDetails = await form.save();
@@ -29,8 +29,8 @@ const signupUserModel = async (data) => {
 }
 const loginUserModel = async (data) => {
  try {
-    const {email , password , }  = data
-    const userDetails = await userModel.findOne({ email: email });
+    const {userEmail , password , }  = data
+    const userDetails = await userModel.findOne({ email: userEmail});
   
 
     
