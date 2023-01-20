@@ -115,7 +115,7 @@ const sendUserNewPasswordLink = async (req, res) => {
     };
     const token = jwt.sign(payload, secret, { expiresIn: "50m" });
 
-    const link = `http://localhost:3000/reset_password/?token=${token}`;
+    const link = `dev-myt-page.netlify.app/reset_password/?token=${token}`;
 
     //start of nodemailer
 
