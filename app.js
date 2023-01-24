@@ -31,7 +31,13 @@ app.use(newsletter_contactus_Route)
 app.use((req, res, next) => {
     const error = new Error(' api not found')
     error.status = 404
-    next(error)
+    res.status(404).json({
+        status_code: 404,
+        status: false,
+        message:error.message,
+        data: [],
+        error: error.message,
+      });
 })
 
 app.use((error, req, res, next) => {
