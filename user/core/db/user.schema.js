@@ -21,29 +21,18 @@ const trainee_schema = new schema({
         type: Number,
         default : ''
     } ,
-    // passwordVerification: {
-    //     token:{
-    //         type: String ,
-    //         default : ''
-    //     },
-    //     date:{
-    //         type: Number,
-    //         default: ''
-    //     },
-      
-    // } ,
-    // affliate: {
-    //     affliate_sign_in:{
-    //         type: Boolean,
-    //         default :  false
-    //     },
-    //     affliate_id:{
-    //         type:String
-    //     },
-    //     affliate_code:{
-    //         type:String
-    //     },
-    // } , 
+    dependent: {
+        default: [],
+        type: [
+            {
+               
+                dependentId: {
+                    type:  mongoose.Schema.Types.ObjectId,
+                     ref:'dependent'
+                }
+            }
+        ]
+    }, 
    roles:{
         type: Array,
     },

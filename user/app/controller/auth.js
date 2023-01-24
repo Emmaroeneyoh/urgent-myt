@@ -9,6 +9,7 @@ const {
   Emailurl,
 } = require("../../../helper/utils");
 var { SendMailClient } = require("zeptomail");
+const { handleError } = require("../../core/utils");
 
 const token = Emailtoken;
 const url = Emailurl;
@@ -38,16 +39,17 @@ const signupUserController = async (req, res, next) => {
       country,
     };
 
-    let trainee = await signupUserModel(data);
+    let trainee = await signupUserModel(data, res);
     return res.status(200).json({
       status_code: 200,
       status: true,
       message: "signup process successful",
       data: trainee,
-      error: {},
+      
     });
   } catch (error) {
     console.log(error);
+    handleError(error.message)(res)
   }
 };
 
@@ -81,7 +83,7 @@ const loginUserController = async (req, res, next) => {
       password,
     };
 
-    let trainee = await loginUserModel(data);
+    let trainee = await loginUserModel(data, res);
     return res.status(200).json({
       status_code: 200,
       status: true,
@@ -115,7 +117,7 @@ const sendUserNewPasswordLink = async (req, res) => {
     };
     const token = jwt.sign(payload, secret, { expiresIn: "50m" });
 
-    const link = `dev-myt-page.netlify.app/reset_password/?token=${token}`;
+    const link = `https://dev-myt-page.netlify.app/reset_password/?token=${token}`;
 
     //start of nodemailer
 
@@ -124,7 +126,7 @@ const sendUserNewPasswordLink = async (req, res) => {
         bounce_address: "system@dev.myt.page",
         from: {
           address: "noreply@myt.page",
-          name: "noreply",
+          name: "myt.page",
         },
         to: [
           {
@@ -132,6 +134,16 @@ const sendUserNewPasswordLink = async (req, res) => {
               address: `${email}`,
             },
           },
+          // {
+          //   email_address: {
+          //     address: `atissmits@gmail.com`,
+          //   },
+          // },
+          // {
+          //   email_address: {
+          //     address: `atissmits@outlook.com`,
+          //   },
+          // },
         ],
         subject: "Reset password ",
         htmlbody: `${link}`,
@@ -201,6 +213,8 @@ const resetUserPassword = async (req, res) => {
     });
   }
 };
+
+
 module.exports = {
   signupUserController,
   loginUserController,

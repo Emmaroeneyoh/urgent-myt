@@ -12,6 +12,8 @@ coonectdb()
 
 //getting all routes related to user/trainee
 const userRoute = require('./user/routes/auth')
+const dependentRoute = require('./user/routes/dependent.route')
+const newsletter_contactus_Route = require('./user/routes/newsletter.contact')
 
 
 app.use(cors())
@@ -21,6 +23,8 @@ app.use(express.urlencoded({ extended: true }));
 
 //using all user/trainee middleware route 
 app.use(userRoute)
+app.use(dependentRoute)
+app.use(newsletter_contactus_Route)
 
 
 //error handler

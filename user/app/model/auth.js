@@ -1,7 +1,7 @@
 const { userModel } = require("../../core/db/user.schema");
 const { create_token, handleError } = require("../../core/utils");
 
-const signupUserModel = async (data) => {
+const signupUserModel = async (data,res) => {
     try {
         const {name, userEmail , Harshpassword , country}  = data
     const form = await new userModel({
@@ -27,7 +27,7 @@ const signupUserModel = async (data) => {
     }
     
 }
-const loginUserModel = async (data) => {
+const loginUserModel = async (data,res) => {
  try {
     const {userEmail , password , }  = data
     const userDetails = await userModel.findOne({ email: userEmail});
