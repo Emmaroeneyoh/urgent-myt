@@ -21,7 +21,7 @@ const signupUserController = async (req, res, next) => {
   try {
     const salt = await bcrypt.genSalt();
     const Harshpassword = await bcrypt.hash(password, salt);
-    const client = await userModel.findOne({ email: email });
+    const client = await userModel.findOne({ email: userEmail });
     if (client) {
       return res.status(400).json({
         status_code: 400,
