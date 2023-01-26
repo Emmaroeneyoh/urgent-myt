@@ -36,8 +36,8 @@ const newsletterController = async (req, res, next) => {
   try {
     const client = await newsletterschema.findOne({ email: userEmail });
     if (client) {
-      return res.status(400).json({
-        status_code: 400,
+      return res.status(200).json({
+        status_code: 200,
         status: false,
         message: "email already subscribed",
        
