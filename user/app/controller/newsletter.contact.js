@@ -52,7 +52,7 @@ const newsletterController = async (req, res, next) => {
       return res.status(200).json({
         status_code: 200,
         status: true,
-        message: "Message sent successfully",
+        message: "Email have been subscribed successfully",
         data: contact,
       });
     } catch (error) {
