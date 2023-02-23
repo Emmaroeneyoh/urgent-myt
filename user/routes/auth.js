@@ -1,5 +1,5 @@
 const { signupUserController, loginUserController, sendUserNewPasswordLink, resetUserPassword } = require('../app/controller/auth')
-const { userSignupValidation, userLoginValidation, userforgotpasswordValidation, userResetpasswordValidation } = require('../core/validation')
+const { userSignupValidation, userLoginValidation, userforgotpasswordValidation, userResetpasswordValidation } = require('../core/user.validation')
 
 const router = require('express').Router()
 

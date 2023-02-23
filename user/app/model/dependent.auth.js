@@ -5,6 +5,7 @@ const { handleError } = require("../../core/utils");
 const createDependent = async (data,res) => {
     try {
         const { userName, age, socialNumber, traineeId } = data
+        const userData = await userModel.findById({ _id:traineeId});
     const dependent = await new dependentModel({
         name : userName,
         age,
@@ -20,6 +21,7 @@ const createDependent = async (data,res) => {
             }
         }
     }) 
+        
     return userDetails
     } catch (error) {
         console.log(error)

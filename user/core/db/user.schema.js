@@ -18,7 +18,12 @@ const trainee_schema = new schema({
     } ,
     phoneNumber: {
         
-        type: Number,
+        type: String,
+        default : ''
+    } ,
+    socialNumber: {
+        
+        type: String,
         default : ''
     } ,
     dependent: {

@@ -14,6 +14,14 @@ coonectdb()
 const userRoute = require('./user/routes/auth')
 const dependentRoute = require('./user/routes/dependent.route')
 const newsletter_contactus_Route = require('./user/routes/newsletter.contact')
+const edit_profile  = require('./user/routes/edit.proflile.trainee')
+const edit_dependent = require('./user/routes/edit.dependent')
+
+//getting all route for affliate
+const affliateRoute  = require('./affliate/routes/auth')
+const affliateRouteBank  = require('./affliate/routes/bank')
+
+
 
 
 app.use(cors())
@@ -25,6 +33,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(userRoute)
 app.use(dependentRoute)
 app.use(newsletter_contactus_Route)
+app.use(edit_profile)
+app.use(edit_dependent)
+
+
+//using all affliate middleware route 
+app.use(affliateRoute)
+app.use(affliateRouteBank)
 
 
 //error handler

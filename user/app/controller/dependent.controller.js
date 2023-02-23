@@ -2,6 +2,7 @@ const { dependentModel } = require("../../core/db/dependent.schema");
 const { createDependent } = require("../model/dependent.auth");
 const { handleError } = require("../../core/utils");
 const { userModel } = require("../../core/db/user.schema");
+const { log_user_model_failed, log_user_model_success } = require("../../../log/app/model/user.log");
 
 
 const createDependentController = async (req, res, next) => {
@@ -19,9 +20,18 @@ const createDependentController = async (req, res, next) => {
         error: "trainee dont exist",
       });
     }
-      const client = await dependentModel.findOne({ name: userName });
+      const client = await dependentModel.findOne({ name: userName , traineeId: traineeId });
      
-      if (client) {
+    if (client) {
+       //saving to the log
+      const userID = user._id
+      const eventId = 6 
+      const eventname = 'createdependent'
+      const log_description = `dependent name already exist`
+      const logged_data = { userID ,  log_description , eventname , eventId}
+      const log_login =  log_user_model_failed(logged_data,res)
+      console.log('this is logged in data')
+      //end of saving to the log
         return res.status(400).json({
           status_code: 400,
           status: false,
@@ -38,7 +48,16 @@ const createDependentController = async (req, res, next) => {
         socialNumber,
       };
   
-      let trainee = await createDependent(data,res);
+    let trainee = await createDependent(data, res);
+             //saving to the log
+             const userID = user._id
+             const eventId = 6 
+             const eventname = 'createdependent'
+             const log_description = `dependent  successfully created`
+             const logged_data = { userID ,  log_description , eventname , eventId}
+             const log_login =  log_user_model_success(logged_data,res)
+             console.log('this is logged in data')
+             //end of saving to the log
       return res.status(200).json({
         status_code: 200,
         status: true,
@@ -46,7 +65,16 @@ const createDependentController = async (req, res, next) => {
         data: trainee,
       });
     } catch (error) {
-        console.log(error);
+    console.log(error);
+            //saving to the log
+            const userID = user._id
+            const eventId = 6 
+            const eventname = 'createdependent'
+            const log_description = `failed to create dependent`
+            const logged_data = { userID ,  log_description , eventname , eventId}
+            const log_login =  log_user_model_failed(logged_data,res)
+            console.log('this is logged in data')
+            //end of saving to the log
         handleError(error.message)(res)
     }
 };
