@@ -19,7 +19,10 @@ const edit_dependent = require('./user/routes/edit.dependent')
 
 //getting all route for affliate
 const affliateRoute  = require('./affliate/routes/auth')
-const affliateRouteBank  = require('./affliate/routes/bank')
+const affliateRouteBank = require('./affliate/routes/bank')
+
+//getting all routes for trainer 
+const trainerRoute = require('./trainer/routes/auth')
 
 
 
@@ -40,6 +43,9 @@ app.use(edit_dependent)
 //using all affliate middleware route 
 app.use(affliateRoute)
 app.use(affliateRouteBank)
+
+//using all trainer middleware route
+app.use(trainerRoute)
 
 
 //error handler

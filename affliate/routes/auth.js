@@ -5,7 +5,7 @@ const {
   affliateSendpromocodeValidation,
   singleaffliateValidation,
 } = require("../core/affliate.validation");
-const { user_check_token } = require("../core/authorization");
+const { user_check_token, check_user_affliate } = require("../core/authorization");
 
 const router = require("express").Router();
 
@@ -18,12 +18,14 @@ router.post(
 router.post(
   "/affliate/send/promocode",
   user_check_token,
+  check_user_affliate,
   affliateSendpromocodeValidation,
   send_affliate_link_to_trainer_controller
 );
 router.post(
   "/affliate/profile",
   user_check_token,
+  check_user_affliate,
   singleaffliateValidation,
  singleAffliateController
 );

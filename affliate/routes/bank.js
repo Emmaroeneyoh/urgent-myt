@@ -12,13 +12,14 @@ const {
   allaffliateBankValidation,
   affliatebankcreationValidation,
 } = require("../core/affliate.validation");
-const { user_check_token } = require("../core/authorization");
+const { user_check_token, check_user_affliate } = require("../core/authorization");
 
 const router = require("express").Router();
 
 router.post(
   "/affliate/add/bank",
   user_check_token,
+  check_user_affliate,
   affliatebankcreationValidation,
   createAffliateBankController
 );
@@ -26,12 +27,14 @@ router.post(
 router.post(
   "/affliate/active/bank",
   user_check_token,
+  check_user_affliate,
   affliateSwitchactivebankValidation,
   switchactiveBankController
 );
 router.post(
   "/affliate/single/bank",
   user_check_token,
+  check_user_affliate,
   singleaffliateBankValidation,
   singleAffliateBankController
 );
@@ -39,6 +42,7 @@ router.post(
 router.post(
   "/affliate/all/bank",
   user_check_token,
+  check_user_affliate,
   allaffliateBankValidation,
   allAffliateBankController
 );
