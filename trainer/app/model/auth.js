@@ -23,6 +23,7 @@ const signup_Trainer_affliate_Model = async (data,res) => {
 
             //saving to the log
         const trainerID = trainerDetails._id
+        
     const EventName = 'registration'
     const Log_Description = `a trainer account has successfully been registered`
     const Logged_Data = { userID : traineeId , log_description : Log_Description , eventname : EventName , eventId : 1 , trainerID}
@@ -80,7 +81,58 @@ const signup_Trainer_affliate_Model = async (data,res) => {
     }
     
 }
+const signup_Trainer_Model = async (data,res) => {
+    try {
+        const { traineeId } = data
+        
+       
+    
+    const form = await new trainerModel({
+       traineeId,
+       affliateId: 'null'
+    });
+        
+        const trainerDetails = await form.save()
+
+            //saving to the log
+        const trainerID = trainerDetails._id
+    const EventName = 'registration'
+    const Log_Description = `a trainer account has successfully been registered`
+    const Logged_Data = { userID : traineeId , log_description : Log_Description , eventname : EventName , eventId : 1 , trainerID}
+    const Log_Login =  log_trainer_model_success(Logged_Data,res)
+    console.log('this is logged in data')
+    //end of saving to the log
+
+         //updating the user to add trainer role
+         const updateUser = await userModel.findByIdAndUpdate({_id:traineeId}, {
+            $push : {
+                roles: "trainer"
+            }
+        })
+        
+               //saving to the log
+    const useriD = traineeId
+    const eventid = 9
+    const eventName = 'becometrainer'
+    const log_Description = `user has registered has a trainer into our system`
+    const Logged_data = { userID : useriD , log_description : log_Description , eventname : eventName , eventId : eventid}
+    const Log_login =  log_user_model_success(Logged_data,res)
+    console.log('this is logged in data')
+    //end of saving to the log
+        //end of updating the user to update the trainer role
+
+      
+        
+   
+ 
+      
+    return trainerDetails
+    } catch (error) {
+        handleError(error.message)(res)
+    }
+    
+}
 
 module.exports = {
-    signup_Trainer_affliate_Model
+    signup_Trainer_affliate_Model , signup_Trainer_Model
 }

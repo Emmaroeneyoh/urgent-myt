@@ -1,39 +1,38 @@
 const {
-  log_affliate_model_failed,
-  log_affliate_model_success,
-} = require("../../../log/app/model/affliate.log");
-const { affliate_model } = require("../../core/db/affliate.schema");
-const { affliate_Banks } = require("../../core/db/affliate_banks");
+  log_trainer_model_failed,
+  log_trainer_model_success,
+} = require("../../../log/app/model/trainer.log");
+const { trainer_Banks } = require("../../core/db/trainer.bank");
+const { trainerModel } = require("../../core/db/trainer.schema");
 
 const { handleError } = require("../../core/utils");
-const { create_affliate_model } = require("../model/auth");
 const {
-  create_affliate_bank_model,
+  create_trainer_bank_model,
   switch_active_bank_model,
-  single_affliate_bank_model,
-  all_affliate_bank_model,
+  single_trainer_bank_model,
+  all_trainer_bank_model,
 } = require("../model/bank");
 
-const createAffliateBankController = async (req, res, next) => {
+const createtrainerBankController = async (req, res, next) => {
   const {
     traineeId,
     accountName,
     accountNumber,
     SB_code,
     accountNickname,
-    affliateId,
+    trainerId,
   } = req.body;
   try {
     //checking if user exist already
-    const bank = await affliate_Banks.findOne({
+    const bank = await trainer_Banks.findOne({
       traineeId: traineeId,
       accountNickname: accountNickname,
     });
     if (bank) {
       //saving to the log
       const userID = traineeId;
-      const affliateID = bank.affliateId;
-      const eventId = 2;
+      // const trainerId = bank.affliateId;
+      const eventId = 7;
       const eventname = "bankregistration";
       const log_description = `bank account with that nickname already exist  `;
       const logged_data = {
@@ -41,9 +40,9 @@ const createAffliateBankController = async (req, res, next) => {
         log_description,
         eventname,
         eventId,
-        affliateID,
+        trainerId,
       };
-      const log_login = log_affliate_model_failed(logged_data, res);
+      const log_login = log_trainer_model_failed(logged_data, res);
       console.log("this is logged in data");
       //end of saving to the log
       return res.status(400).json({
@@ -60,10 +59,10 @@ const createAffliateBankController = async (req, res, next) => {
       accountNumber,
       SB_code,
       accountNickname,
-      affliateId,
+      trainerId,
     };
 
-    let trainee = await create_affliate_bank_model(data, res);
+    let trainee = await create_trainer_bank_model(data, res);
 
     return res.status(200).json({
       status_code: 200,
@@ -77,17 +76,16 @@ const createAffliateBankController = async (req, res, next) => {
   }
 };
 
-
 const switchactiveBankController = async (req, res, next) => {
-  const { affliateId, bankId } = req.body;
+  const { trainerId, bankId } = req.body;
   try {
     //checking if user exist already
-    const bank = await affliate_Banks.findById({ _id: bankId });
+    const bank = await trainer_Banks.findById({ _id: bankId });
     if (!bank) {
       //saving to the log
       const userID = "null";
       const affliateID = "null";
-      const eventId = 4;
+      const eventId = 8;
       const eventname = "activebank";
       const log_description = `bank account dont exist  `;
       const logged_data = {
@@ -95,9 +93,9 @@ const switchactiveBankController = async (req, res, next) => {
         log_description,
         eventname,
         eventId,
-        affliateID,
+        trainerId,
       };
-      const log_login = log_affliate_model_failed(logged_data, res);
+      const log_login = log_trainer_model_success(logged_data, res);
       console.log("this is logged in data");
       //end of saving to the log
       return res.status(400).json({
@@ -109,15 +107,15 @@ const switchactiveBankController = async (req, res, next) => {
     }
 
     const data = {
-      affliateId,
+        trainerId,
       bankId,
     };
 
     let trainee = await switch_active_bank_model(data, res);
     //saving to the log
     const userID = bank.traineeId;
-    const affliateID = bank.affliateId;
-    const eventId = 4;
+    // const affliateID = bank.affliateId;
+    const eventId = 8;
     const eventname = "activebank";
     const log_description = `bank account now switched to active bank account  `;
     const logged_data = {
@@ -125,9 +123,9 @@ const switchactiveBankController = async (req, res, next) => {
       log_description,
       eventname,
       eventId,
-      affliateID,
+      trainerId,
     };
-    const log_login = log_affliate_model_success(logged_data, res);
+    const log_login = log_trainer_model_success(logged_data, res);
     console.log("this is logged in data");
     //end of saving to the log
     return res.status(200).json({
@@ -142,18 +140,18 @@ const switchactiveBankController = async (req, res, next) => {
   }
 };
 
-const singleAffliateBankController = async (req, res, next) => {
+const singletrainerBankController = async (req, res, next) => {
   const { bankId } = req.body;
   try {
     //checking if user exist already
-    const client = await affliate_Banks.findById({ _id: bankId });
+    const client = await trainer_Banks.findById({ _id: bankId });
     if (!client) {
       return res.status(400).json({
         status_code: 400,
         status: false,
-        message: "affliate  bank account dont exist",
+        message: "trainer  bank account dont exist",
         data: [],
-        error: "affliate bank account dont exist",
+        error: "trainer bank account dont exist",
       });
     }
 
@@ -161,12 +159,12 @@ const singleAffliateBankController = async (req, res, next) => {
       bankId,
     };
 
-    let trainee = await single_affliate_bank_model(data, res);
+    let trainee = await single_trainer_bank_model(data, res);
 
     return res.status(200).json({
       status_code: 200,
       status: true,
-      message: "affliate bank successfully retrieved",
+      message: "trainer bank successfully retrieved",
       data: trainee,
     });
   } catch (error) {
@@ -175,31 +173,31 @@ const singleAffliateBankController = async (req, res, next) => {
   }
 };
 
-const allAffliateBankController = async (req, res, next) => {
-  const { affliateId } = req.body;
+const alltrainerBankController = async (req, res, next) => {
+  const { trainerId } = req.body;
   try {
     //checking if user exist already
-    const client = await affliate_model.findById({ _id: affliateId });
+    const client = await trainerModel.findById({ _id: trainerId });
     if (!client) {
       return res.status(400).json({
         status_code: 400,
         status: false,
-        message: "affliate  account dont exist",
+        message: "trainer  account dont exist",
         data: [],
-        error: "affliate  account dont exist",
+        error: "trainer  account dont exist",
       });
     }
 
     const data = {
-      affliateId,
+      trainerId,
     };
 
-    let trainee = await all_affliate_bank_model(data, res);
+    let trainee = await all_trainer_bank_model(data, res);
 
     return res.status(200).json({
       status_code: 200,
       status: true,
-      message: "affliate banks successfully retrieved",
+      message: "trainer banks successfully retrieved",
       data: trainee,
     });
   } catch (error) {
@@ -209,8 +207,9 @@ const allAffliateBankController = async (req, res, next) => {
 };
 
 module.exports = {
-  createAffliateBankController,
+  createtrainerBankController,
   switchactiveBankController,
-  singleAffliateBankController,
-  allAffliateBankController,
+  singletrainerBankController,
+  alltrainerBankController,
+  
 };

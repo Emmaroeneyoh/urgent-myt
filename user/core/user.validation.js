@@ -23,6 +23,7 @@ const userSignupValidation = (req, res, next) => {
   }
   return next();
 };
+
 const userLoginValidation = (req, res, next) => {
   const schema = joi.object({
     email: joi.string().required().email(),

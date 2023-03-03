@@ -16,6 +16,7 @@ const dependentRoute = require('./user/routes/dependent.route')
 const newsletter_contactus_Route = require('./user/routes/newsletter.contact')
 const edit_profile  = require('./user/routes/edit.proflile.trainee')
 const edit_dependent = require('./user/routes/edit.dependent')
+const traineeAppointment = require('./user/routes/appointment')
 
 //getting all route for affliate
 const affliateRoute  = require('./affliate/routes/auth')
@@ -23,6 +24,16 @@ const affliateRouteBank = require('./affliate/routes/bank')
 
 //getting all routes for trainer 
 const trainerRoute = require('./trainer/routes/auth')
+const trainerRouteProfile = require('./trainer/routes/profile')
+const trainerRouteEditProfile = require('./trainer/routes/edit.profile')
+const trainerRouteBank = require('./trainer/routes/bank')
+const trainersession = require('./trainer/routes/session')
+const trainerappointment = require('./trainer/routes/attendance')
+
+
+//getting all routes for course
+const courseroute = require('./courses/routes/course')
+const paymentroute = require('./courses/routes/payment')
 
 
 
@@ -38,6 +49,7 @@ app.use(dependentRoute)
 app.use(newsletter_contactus_Route)
 app.use(edit_profile)
 app.use(edit_dependent)
+app.use(traineeAppointment)
 
 
 //using all affliate middleware route 
@@ -46,6 +58,15 @@ app.use(affliateRouteBank)
 
 //using all trainer middleware route
 app.use(trainerRoute)
+app.use(trainerRouteProfile)
+app.use(trainerRouteEditProfile)
+app.use(trainerRouteBank)
+app.use(trainersession)
+app.use(trainerappointment)
+
+//using all cousre middleware route
+app.use(courseroute)
+app.use(paymentroute)
 
 
 //error handler

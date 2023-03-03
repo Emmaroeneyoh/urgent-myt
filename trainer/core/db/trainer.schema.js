@@ -8,6 +8,11 @@ const trainee_schema = new schema({
         ref:'trainee'
         
     },
+    active_bank: {
+        type: String,
+        default  :"null"
+        
+ },
     affliateId: {
         type: String,
         
@@ -25,91 +30,103 @@ const trainee_schema = new schema({
             type: String,
             
         },
-        profile1_complete: {
-            type: Boolean,
-            default : false
-            
-        }
+      
     },
-    profile2: {
+    profile1_complete: {
+        type: Boolean,
+        default : false
+        
+    },
+    
+    work_experience: [{
         title: {
             type: String,
-            
+                
         },
         company: {
             type: String,
-            
+                
         },
         recent_work: {
             type: Boolean,
-            default : false
-            
+            default: false
+                
         },
         start_date: {
             type: String,
-            
+                
         },
         end_date: {
             type: String,
-            
+                
         },
         job_skills: {
             type: String,
-            
+                
         },
         role_accomplishment: {
             type: String,
-            
+                
         },
+    }],
+        
+        
         profile2_complete: {
             type: Boolean,
             default : false
             
+        },
+    
+
+    education_degree: [
+        {
+            educational_background: {
+                type: String,
+                
+            },
+            place_of_qaulification: {
+                type: String,
+                
+            },
+            in_view: {
+                type: Boolean,
+                default : false
+                
+            },
+            graduation_year: {
+                type: String,
+                
+            },
+            describe_learning: {
+                type: String,
+                
+            },
+           
         }
+    ],
+    profile3_complete: {
+        type: Boolean,
+        default : false
+        
     },
-    profile3: {
-        work_experience: [{}],
-        profile3_complete: {
-            type: Boolean,
-            default : false
-            
-        }
-    },
-    profile4: {
-        educational_background: {
-            type: String,
-            
-        },
-        place_of_qaulification: {
-            type: String,
-            
-        },
-        in_view: {
-            type: Boolean,
-            default : false
-            
-        },
-        graduation_year: {
-            type: String,
-            
-        },
-        describe_learning: {
-            type: String,
-            
-        },
-        profile4_complete: {
-            type: Boolean,
-            default : false
-            
-        }
-    },
-    profile5: {
+   
         skills: [''],
-        profile5_complete: {
-            type: Boolean,
-            default : false
-            
-        }
+       
+   
+    profile4_complete: {
+        type: Boolean,
+        default : false
+        
+    },
+    educational_background: {
+        type: String,
+        default : ''
+        
+    },
+    profile5_complete: {
+        type: Boolean,
+        default : false
+        
     },
     profile_completion: {
         type: Boolean,

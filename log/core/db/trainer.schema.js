@@ -12,6 +12,9 @@ const dependent_schema = new schema({
     userID:{
         type:String,
     },
+    trainerID:{
+        type:String,
+    },
     log_description:{
         type:String,
     },
