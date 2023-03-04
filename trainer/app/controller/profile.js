@@ -10,6 +10,7 @@ const {
   Trainer_profile3_Model,
   Trainer_profile4_Model,
   Trainer_profile5_Model,
+  Trainer_delete_Model,
 } = require("../model/profile");
 
 const updatetrainerprofile1Controller = async (req, res, next) => {
@@ -249,10 +250,59 @@ const updatetrainerprofile4Controller = async (req, res, next) => {
   };
   
 
+const deletetrainerController = async (req, res, next) => {
+    const {
+      trainerId,
+      traineeId,
+    } = req.body;
+  
+    try {
+      const user = await trainerModel.findOne({ _id: trainerId });
+      if (!user) {
+        //saving to the log
+        const userID = traineeId;
+        const eventId = 3;
+        const eventname = "updateprofile2";
+        const log_description = `trainer dont exist on our system`;
+        const logged_data = { userID, log_description, eventname, eventId };
+        const log_login = log_trainer_model_failed(logged_data, res);
+        console.log("this is logged in data");
+        //end of saving to the log
+        return res.status(400).json({
+          status_code: 400,
+          status: false,
+          message: "trainer dont exist",
+  
+          error: "trainer dont exist",
+        });
+      }
+  
+      const data = {
+          trainerId,
+      
+          traineeId,
+        
+      };
+  
+      let trainee = await Trainer_delete_Model(data, res);
+  
+      return res.status(200).json({
+        status_code: 200,
+        status: true,
+        message: "trainer skills updated successfully",
+        data: trainee,
+      });
+    } catch (error) {
+      console.log(error);
+      handleError(error.message)(res);
+    }
+  };
+  
+
 module.exports = {
   updatetrainerprofile1Controller,
   updatetrainerprofile2Controller,
     updatetrainerprofile3Controller,
     updatetrainerprofile4Controller,
-    updatetrainerprofile5Controller,
+    updatetrainerprofile5Controller, deletetrainerController
 };

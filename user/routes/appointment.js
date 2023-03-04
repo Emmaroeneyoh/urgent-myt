@@ -1,5 +1,5 @@
 const {
-  singletrainerController,
+  singletrainerController, alltrainerController,
 } = require("../../trainer/app/controller/retreive.trainer");
 const {
   filteredtrainersessionController, singletrainersessionController, trainersessionsController,
@@ -20,6 +20,7 @@ const {
   alltraineefilteredappointmentValidation,
   singletraineeappointmentValidation,
   singletrainerValidation,
+  alltrainertraineeValidation,
 } = require("../core/appointment.validation");
 const { user_check_token } = require("../core/auhorization");
 
@@ -72,4 +73,12 @@ router.post(
   trainersessionsController,
 );
 
+//trainer
+
+router.post(
+  "/trainee/trainers",
+    user_check_token,
+  alltrainertraineeValidation,
+  alltrainerController
+);
 module.exports = router;

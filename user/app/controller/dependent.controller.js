@@ -1,5 +1,5 @@
 const { dependentModel } = require("../../core/db/dependent.schema");
-const { createDependent } = require("../model/dependent.auth");
+const { createDependent, singleDependent, allDependent, deleteDependent } = require("../model/dependent.auth");
 const { handleError } = require("../../core/utils");
 const { userModel } = require("../../core/db/user.schema");
 const { log_user_model_failed, log_user_model_success } = require("../../../log/app/model/user.log");
@@ -79,6 +79,132 @@ const createDependentController = async (req, res, next) => {
     }
 };
   
+const singleDependentController = async (req, res, next) => {
+    const { dependentId , traineeId} = req.body;
+   
+  try {
+    const user = await userModel.findOne({ _id: traineeId });
+    if (!user) {
+      return res.status(400).json({
+        status_code: 400,
+        status: false,
+        message: "trainee dont exist",
+    
+        error: "trainee dont exist",
+      });
+    }
+      const client = await dependentModel.findById({ _id : dependentId });
+     
+    if (!client) {
+      
+        return res.status(400).json({
+          status_code: 400,
+          status: false,
+          message: "dependent dont exist",
+      
+          error: "dependent dont exist",
+        });
+      }
+  
+      const data = {
+       dependentId
+      };
+  
+    let trainee = await singleDependent(data, res);
+           
+      return res.status(200).json({
+        status_code: 200,
+        status: true,
+        message: "Dependent succesffuly retrieved",
+        data: trainee,
+      });
+    } catch (error) {
+    console.log(error);
+        
+        handleError(error.message)(res)
+    }
+};
+  
+const allDependentController = async (req, res, next) => {
+    const { traineeId} = req.body;
+   
+  try {
+    const user = await userModel.findOne({ _id: traineeId });
+    if (!user) {
+      return res.status(400).json({
+        status_code: 400,
+        status: false,
+        message: "trainee dont exist",
+    
+        error: "trainee dont exist",
+      });
+    }
+     
+      const data = {
+       traineeId
+      };
+  
+    let trainee = await allDependent(data, res);
+           
+      return res.status(200).json({
+        status_code: 200,
+        status: true,
+        message: "Dependent succesffuly retrieved",
+        data: trainee,
+      });
+    } catch (error) {
+    console.log(error);
+        
+        handleError(error.message)(res)
+    }
+};
+  
+const deleteDependentController = async (req, res, next) => {
+    const { dependentId , traineeId} = req.body;
+   
+  try {
+    const user = await userModel.findOne({ _id: traineeId });
+    if (!user) {
+      return res.status(400).json({
+        status_code: 400,
+        status: false,
+        message: "trainee dont exist",
+    
+        error: "trainee dont exist",
+      });
+    }
+      const client = await dependentModel.findById({ _id : dependentId });
+     
+    if (!client) {
+      
+        return res.status(400).json({
+          status_code: 400,
+          status: false,
+          message: "dependent dont exist",
+      
+          error: "dependent dont exist",
+        });
+      }
+  
+      const data = {
+       dependentId,traineeId
+      };
+  
+    let trainee = await  deleteDependent(data, res);
+           
+      return res.status(200).json({
+        status_code: 200,
+        status: true,
+        message: "Dependent succesffuly retrieved",
+        data: trainee,
+      });
+    } catch (error) {
+    console.log(error);
+        
+        handleError(error.message)(res)
+    }
+};
+  
 module.exports = {
-    createDependentController
+    createDependentController , singleDependentController , deleteDependentController , allDependentController
 }

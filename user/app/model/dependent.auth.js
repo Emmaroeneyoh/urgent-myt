@@ -29,8 +29,52 @@ const createDependent = async (data,res) => {
     }
     
 }
+const singleDependent = async (data,res) => {
+    try {
+        const { dependentId } = data
+        const userData = await dependentModel.findById({ _id:dependentId});
+    
+        
+    return userData
+    } catch (error) {
+        console.log(error)
+        handleError(error.message)(res)
+    }
+    
+}
+const allDependent = async (data,res) => {
+    try {
+        const {  traineeId } = data
+        const userData = await dependentModel.find({ traineeId});
+     
+        
+    return userData
+    } catch (error) {
+        console.log(error)
+        handleError(error.message)(res)
+    }
+    
+}
+const deleteDependent = async (data,res) => {
+    try {
+        const { dependentId , traineeId} = data
+        const userData = await dependentModel.findByIdAndDelete({ _id: dependentId });
+        const updateTrainee = await userModel.findByIdAndUpdate({_id:traineeId}, {
+            $pull : {
+                dependent:{
+                    dependentId : dependentId
+                }
+            }
+        }) 
+    return userData
+    } catch (error) {
+        console.log(error)
+        handleError(error.message)(res)
+    }
+    
+}
 
 
 module.exports = {
-    createDependent
+    createDependent , singleDependent , allDependent , deleteDependent
 }

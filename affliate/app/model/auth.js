@@ -64,8 +64,8 @@ const create_affliate_model = async (data,res) => {
 
 const single_affliate_model = async (data,res) => {
     try {
-        const { affliateId  } = data
-        const userData = await affliate_model.findById({ _id: affliateId });
+        const { traineeId  } = data
+        const userData = await affliate_model.findOne({ traineeId });
       
 
     return userData

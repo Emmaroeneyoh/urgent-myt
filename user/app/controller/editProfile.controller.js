@@ -1,6 +1,6 @@
 const { handleError } = require("../../core/utils");
 const { userModel } = require("../../core/db/user.schema");
-const bcrypt = require('bcrypt')
+const bcrypt = require("bcrypt");
 const {
   updateUserNameModel,
   updateEmailModel,
@@ -8,8 +8,12 @@ const {
   updatesocialModel,
   updatelocationModel,
   updatePasswordModel,
+  updateimageModel,
 } = require("../model/editProfile.model");
-const { log_user_model_success, log_user_model_failed } = require("../../../log/app/model/user.log");
+const {
+  log_user_model_success,
+  log_user_model_failed,
+} = require("../../../log/app/model/user.log");
 
 const updateUserNameController = async (req, res, next) => {
   const { name, traineeId } = req.body;
@@ -33,15 +37,15 @@ const updateUserNameController = async (req, res, next) => {
     };
 
     let trainee = await updateUserNameModel(data, res);
-      //saving to the log
-      const userID = trainee._id
-      const eventId = 8 
-      const eventname = 'editprofile'
-      const log_description = `user name updated`
-      const logged_data = { userID , log_description , eventname , eventId}
-      const log_login = log_user_model_success(logged_data,res)
-      console.log('this is logged in data')
-      //end of saving to the log
+    //saving to the log
+    const userID = trainee._id;
+    const eventId = 8;
+    const eventname = "editprofile";
+    const log_description = `user name updated`;
+    const logged_data = { userID, log_description, eventname, eventId };
+    const log_login = log_user_model_success(logged_data, res);
+    console.log("this is logged in data");
+    //end of saving to the log
     return res.status(200).json({
       status_code: 200,
       status: true,
@@ -49,7 +53,6 @@ const updateUserNameController = async (req, res, next) => {
       data: trainee,
     });
   } catch (error) {
-    
     console.log(error);
     handleError(error.message)(res);
   }
@@ -89,15 +92,15 @@ const updateEmailController = async (req, res, next) => {
     };
 
     let trainee = await updateEmailModel(data, res);
-        //saving to the log
-        const userID = trainee._id 
-        const eventId = 8 
-        const eventname = 'editprofile'
-        const log_description = `user email updated`
-        const logged_data = { userID , log_description , eventname , eventId}
-        const log_login = log_user_model_success(logged_data,res)
-        console.log('this is logged in data')
-        //end of saving to the log
+    //saving to the log
+    const userID = trainee._id;
+    const eventId = 8;
+    const eventname = "editprofile";
+    const log_description = `user email updated`;
+    const logged_data = { userID, log_description, eventname, eventId };
+    const log_login = log_user_model_success(logged_data, res);
+    console.log("this is logged in data");
+    //end of saving to the log
     return res.status(200).json({
       status_code: 200,
       status: true,
@@ -105,7 +108,6 @@ const updateEmailController = async (req, res, next) => {
       data: trainee,
     });
   } catch (error) {
-       
     console.log(error);
     handleError(error.message)(res);
   }
@@ -132,15 +134,15 @@ const updatePhoneController = async (req, res, next) => {
     };
 
     let trainee = await updatePhoneModel(data, res);
-        //saving to the log
-        const userID = trainee._id 
-        const eventId = 8 
-        const eventname = 'editprofile'
-        const log_description = `user phone number updated`
-        const logged_data = { userID , log_description , eventname , eventId}
-        const log_login = log_user_model_success(logged_data,res)
-        console.log('this is logged in data')
-        //end of saving to the log
+    //saving to the log
+    const userID = trainee._id;
+    const eventId = 8;
+    const eventname = "editprofile";
+    const log_description = `user phone number updated`;
+    const logged_data = { userID, log_description, eventname, eventId };
+    const log_login = log_user_model_success(logged_data, res);
+    console.log("this is logged in data");
+    //end of saving to the log
     return res.status(200).json({
       status_code: 200,
       status: true,
@@ -148,7 +150,6 @@ const updatePhoneController = async (req, res, next) => {
       data: trainee,
     });
   } catch (error) {
-       
     console.log(error);
     handleError(error.message)(res);
   }
@@ -174,15 +175,15 @@ const updatesocialController = async (req, res, next) => {
     };
 
     let trainee = await updatesocialModel(data, res);
-        //saving to the log
-        const userID = trainee._id 
-        const eventId = 8 
-        const eventname = 'editprofile'
-        const log_description = `user social number updated`
-        const logged_data = { userID , log_description , eventname , eventId}
-        const log_login = log_user_model_success(logged_data,res)
-        console.log('this is logged in data')
-        //end of saving to the log
+    //saving to the log
+    const userID = trainee._id;
+    const eventId = 8;
+    const eventname = "editprofile";
+    const log_description = `user social number updated`;
+    const logged_data = { userID, log_description, eventname, eventId };
+    const log_login = log_user_model_success(logged_data, res);
+    console.log("this is logged in data");
+    //end of saving to the log
     return res.status(200).json({
       status_code: 200,
       status: true,
@@ -190,11 +191,11 @@ const updatesocialController = async (req, res, next) => {
       data: trainee,
     });
   } catch (error) {
-       
     console.log(error);
     handleError(error.message)(res);
   }
 };
+
 const updatelocationController = async (req, res, next) => {
   const { location, traineeId } = req.body;
 
@@ -212,19 +213,19 @@ const updatelocationController = async (req, res, next) => {
 
     const data = {
       traineeId,
-      location
+      location,
     };
 
     let trainee = await updatelocationModel(data, res);
-        //saving to the log
-        const userID = trainee._id 
-        const eventId = 8 
-        const eventname = 'editprofile'
-        const log_description = `user location updated`
-        const logged_data = { userID , log_description , eventname , eventId}
-        const log_login = log_user_model_success(logged_data,res)
-        console.log('this is logged in data')
-        //end of saving to the log
+    //saving to the log
+    const userID = trainee._id;
+    const eventId = 8;
+    const eventname = "editprofile";
+    const log_description = `user location updated`;
+    const logged_data = { userID, log_description, eventname, eventId };
+    const log_login = log_user_model_success(logged_data, res);
+    console.log("this is logged in data");
+    //end of saving to the log
     return res.status(200).json({
       status_code: 200,
       status: true,
@@ -232,13 +233,54 @@ const updatelocationController = async (req, res, next) => {
       data: trainee,
     });
   } catch (error) {
-       
+    console.log(error);
+    handleError(error.message)(res);
+  }
+};
+
+const updateimageController = async (req, res, next) => {
+  const { image, traineeId } = req.body;
+
+  try {
+    const user = await userModel.findOne({ _id: traineeId });
+    if (!user) {
+      return res.status(400).json({
+        status_code: 400,
+        status: false,
+        message: "trainee dont exist",
+
+        error: "trainee dont exist",
+      });
+    }
+
+    const data = {
+      traineeId,
+      image,
+    };
+
+    let trainee = await updateimageModel(data, res);
+    //saving to the log
+    const userID = trainee._id;
+    const eventId = 8;
+    const eventname = "editprofile";
+    const log_description = `user location updated`;
+    const logged_data = { userID, log_description, eventname, eventId };
+    const log_login = log_user_model_success(logged_data, res);
+    console.log("this is logged in data");
+    //end of saving to the log
+    return res.status(200).json({
+      status_code: 200,
+      status: true,
+      message: "trainee location updated successfully",
+      data: trainee,
+    });
+  } catch (error) {
     console.log(error);
     handleError(error.message)(res);
   }
 };
 const updatepasswordController = async (req, res, next) => {
-  const { currentpassword, newpassword , traineeId } = req.body;
+  const { currentpassword, newpassword, traineeId } = req.body;
 
   try {
     const user = await userModel.findOne({ _id: traineeId });
@@ -253,18 +295,21 @@ const updatepasswordController = async (req, res, next) => {
     }
     //bycypting the current password and checking if it matches with the one on the database
     const salt = await bcrypt.genSalt();
-    const Harshpasswordcurrentpassword = await bcrypt.compare(currentpassword, user.password);
+    const Harshpasswordcurrentpassword = await bcrypt.compare(
+      currentpassword,
+      user.password
+    );
     const Harshpasswordnewpassword = await bcrypt.hash(newpassword, salt);
     if (!Harshpasswordcurrentpassword) {
-          //saving to the log
-     const userID = user._id
-     const eventId = 8 
-     const eventname = 'editprofile'
-     const log_description = `user password incorrect, input your current old password.`
-     const logged_data = { userID , log_description , eventname , eventId}
-     const log_login = log_user_model_failed(logged_data,res)
-     console.log('this is logged in data')
-     //end of saving to the log
+      //saving to the log
+      const userID = user._id;
+      const eventId = 8;
+      const eventname = "editprofile";
+      const log_description = `user password incorrect, input your current old password.`;
+      const logged_data = { userID, log_description, eventname, eventId };
+      const log_login = log_user_model_failed(logged_data, res);
+      console.log("this is logged in data");
+      //end of saving to the log
       return res.status(400).json({
         status_code: 400,
         status: false,
@@ -274,23 +319,21 @@ const updatepasswordController = async (req, res, next) => {
       });
     }
 
-    
-
     const data = {
       traineeId,
-      Harshpasswordnewpassword
+      Harshpasswordnewpassword,
     };
 
     let trainee = await updatePasswordModel(data, res);
-        //saving to the log
-        const userID = trainee._id 
-        const eventId = 8 
-        const eventname = 'editprofile'
-        const log_description = `user password updated`
-        const logged_data = { userID , log_description , eventname , eventId}
-        const log_login = log_user_model_success(logged_data,res)
-        console.log('this is logged in data')
-        //end of saving to the log
+    //saving to the log
+    const userID = trainee._id;
+    const eventId = 8;
+    const eventname = "editprofile";
+    const log_description = `user password updated`;
+    const logged_data = { userID, log_description, eventname, eventId };
+    const log_login = log_user_model_success(logged_data, res);
+    console.log("this is logged in data");
+    //end of saving to the log
     return res.status(200).json({
       status_code: 200,
       status: true,
@@ -306,5 +349,8 @@ const updatepasswordController = async (req, res, next) => {
 module.exports = {
   updateUserNameController,
   updateEmailController,
-  updatePhoneController , updatesocialController , updatelocationController , updatepasswordController
+  updatePhoneController,
+  updatesocialController,
+  updatelocationController,
+  updatepasswordController,updateimageController
 };

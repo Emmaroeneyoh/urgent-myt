@@ -64,11 +64,11 @@ const createAffliateController = async (req, res, next) => {
 
 
 const singleAffliateController = async (req, res, next) => {
-  const { affliateId } = req.body;
+  const { traineeId } = req.body;
   try {
  
     //checking if user exist already
-    const client = await affliate_model.findById({_id: affliateId });
+    const client = await affliate_model.findOne({traineeId});
     if (!client) {
 
       return res.status(400).json({
@@ -83,7 +83,7 @@ const singleAffliateController = async (req, res, next) => {
     
 
     const data = {
-      affliateId
+      traineeId
     };
 
     let trainee = await single_affliate_model(data, res);

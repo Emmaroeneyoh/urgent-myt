@@ -1,3 +1,4 @@
+const { affliate_model } = require("../../../affliate/core/db/affliate.schema");
 const {
   log_trainer_model_success,
 } = require("../../../log/app/model/trainer.log");
@@ -304,6 +305,51 @@ const Trainer_profile5_Model = async (data, res) => {
     } catch (error) {
       handleError(error.message)(res);
     }
+};
+  
+
+const Trainer_delete_Model = async (data, res) => {
+    try {
+      const { trainerId,  traineeId } = data;
+  
+      //updating the trainer pofile1
+      const train = await trainerModel.findById({_id : trainerId})
+      const trainerDetails = await trainerModel.findByIdAndDelete(
+        trainerId
+      );
+      //end of updating the trainer profile1
+        
+       //updating the affliate account too
+       const updateAffliate = await  affliate_model.findByIdAndUpdate(affliate._id, {
+        $pull: {
+            trainers: {
+                trainerId: train._id
+            }
+        }
+    })
+
+  
+      // //saving to the log of the affliate
+      // const userID = traineeId;
+      // const trainerID = trainerId;
+      // const eventId = 6;
+      // const eventname = "updateEducationBackground";
+      // const log_description = `Education Background updated `;
+      // const logged_data = {
+      //   userID,
+      //   log_description,
+      //   eventname,
+      //   eventId,
+      //   trainerID,
+      // };
+      // const log_login = log_trainer_model_success(logged_data, res);
+      // console.log("this is logged in data");
+      // //end of saving to the log
+  
+      return trainerDetails;
+    } catch (error) {
+      handleError(error.message)(res);
+    }
   };
 
 module.exports = {
@@ -311,5 +357,5 @@ module.exports = {
   Trainer_profile2_Model,
   Trainer_profile3_Model,
   Trainer_profile4_Model,
-  Trainer_profile5_Model,
+  Trainer_profile5_Model,Trainer_delete_Model
 };

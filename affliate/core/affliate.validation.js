@@ -96,7 +96,6 @@ const affliateSwitchactivebankValidation = (req, res, next) => {
 const singleaffliateValidation = (req, res, next) => {
   const schema = joi.object({
     traineeId: joi.string().required(),
-    affliateId: joi.string().required(),
   });
   const { error } = schema.validate(req.body);
   if (error) {

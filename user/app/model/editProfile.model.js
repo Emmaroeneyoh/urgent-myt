@@ -124,6 +124,25 @@ const updatePasswordModel = async (data, res) => {
     handleError(error.message)(res);
   }
 };
+const updateimageModel = async (data, res) => {
+  try {
+    const { traineeId , image } = data;
+    const userDetails = await userModel.findByIdAndUpdate(
+      traineeId,
+      {
+        $set: {
+          profile_img: image,
+        },
+      },
+      { new: true }
+    );
+        
+    return userDetails;
+  } catch (error) {
+    console.log(error);
+    handleError(error.message)(res);
+  }
+};
 
 module.exports = {
   updateUserNameModel,
@@ -132,4 +151,5 @@ module.exports = {
   updatesocialModel,
   updatelocationModel,
   updatePasswordModel,
+  updateimageModel
 };

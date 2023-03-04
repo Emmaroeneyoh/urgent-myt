@@ -26,6 +26,11 @@ const trainee_schema = new schema({
         type: String,
         default : ''
     } ,
+    profile_img: {
+        
+        type: String,
+        default : ''
+    } ,
     dependent: {
         default: [],
         type: [

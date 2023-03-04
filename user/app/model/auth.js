@@ -63,7 +63,11 @@ const UserProfileModel = async (data,res) => {
         name: userDetails.name,
         location : userDetails.location ,
         email: userDetails.email,
-        role : userDetails.roles
+        role: userDetails.roles,
+        profile_image: userDetails.profile_img,
+        phone_number: userDetails.phoneNumber,
+        dependents: userDetails.dependent,
+        social_number : userDetails.socialNumber
         
      }
   

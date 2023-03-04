@@ -5,6 +5,7 @@ const {
   updatesocialController,
   updatelocationController,
   updatepasswordController,
+  updateimageController,
 } = require("../app/controller/editProfile.controller");
 const { userprofileController } = require("../app/controller/profile");
 const { user_check_token } = require("../core/auhorization");
@@ -13,7 +14,7 @@ const {
   editTraineeEmailValidation,
   editTraineePhoneValidation,
   editTraineelocationValidation,
-  editTraineeSocialValidation, editTraineepasswordValidation, GetNotificationValidation
+  editTraineeSocialValidation, editTraineepasswordValidation, GetNotificationValidation, editTraineeimageValidation
 } = require("../core/user.validation");
 
 const router = require("express").Router();
@@ -49,6 +50,13 @@ router.post(
   editTraineelocationValidation,
   updatelocationController
 );
+router.post(
+  "/trainee/profile/image",
+  user_check_token,
+  editTraineeimageValidation,
+  updateimageController
+);
+
 router.post(
   "/trainee/profile/password",
   user_check_token,

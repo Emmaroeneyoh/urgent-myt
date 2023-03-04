@@ -138,8 +138,6 @@ const trainee_schema = new schema({
     //session profile 4 starts
     curriculum:[{}], 
    
-       
-   
     session_profile4: {
         type: Boolean,
         default : false
@@ -153,6 +151,55 @@ const trainee_schema = new schema({
         default: 0,
         type : Number
     } ,
+    
+    // //session profile 3 starts
+    // days_of_occurence: {
+    //     default: [] ,
+    //     type : Array
+    // },
+    // type_of_occurence: {
+    //     type: String,
+    //     default : ""
+    // },
+    // time_of_occurence: {
+    //     start_time: {
+    //         type: String,
+    //         default : ""
+    //     },
+    //     end_time: {
+    //         type: String,
+    //         default : ""
+    //     }
+        
+    // },
+   
+    
+    // session_profile3: {
+    //     type: Boolean,
+    //     default : false
+        
+    // },
+    
+    // //session profile 3 ends
+
+    // //session profile 4 starts
+    // curriculum:[{}], 
+   
+       
+   
+    // session_profile4: {
+    //     type: Boolean,
+    //     default : false
+        
+    // },
+    // curriculum_type: {
+    //     default: '',
+    //     type : String
+    // } ,
+    // curriculum_duration: {
+    //     default: 0,
+    //     type : Number
+    // } ,
     
     //session profile 4 ends
 

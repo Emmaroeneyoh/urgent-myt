@@ -1,5 +1,6 @@
 
 const { createtrainer_affliateController } = require("../app/controller/auth");
+const { deletetrainerController } = require("../app/controller/profile");
 const { singletrainerController } = require("../app/controller/retreive.trainer");
 const { user_check_token } = require("../core/authorization");
 const { singletrainerprofileValidation } = require("../core/trainer.profile");
@@ -19,6 +20,12 @@ router.post(
   user_check_token,
 singletrainerprofileValidation,
   singletrainerController  
+);
+router.delete(
+  "/trainer/profile/delete",
+  user_check_token,
+singletrainerprofileValidation,
+  deletetrainerController  
 );
 
 module.exports = router;
