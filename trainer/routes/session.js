@@ -42,7 +42,6 @@ router.post(
 );
 router.post(
   "/trainer/update/session3",  
-  
   user_check_token,
   trainercreatesession3Validation,
   createtrainersession3Controller

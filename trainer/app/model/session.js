@@ -162,23 +162,33 @@ const create_trainer_session3_model = async (data, res) => {
   try {
     const {
       sessionId,
-      days_of_occurence,
-      type_of_occurence,
       traineeId,
+      curriculum,
+      curriculum_duration,
+      custom_time,
+      curriculum_type,
       start_time,
       end_time,
+      start_date,
+      end_date,
     } = data;
     //updating the trainer pofile1
     const trainerDetails = await trainersession.findByIdAndUpdate(
       sessionId,
       {
         $set: {
-          time_of_occurence: {
-            start_time: start_time,
-            end_time: end_time,
+          date_range: {
+            start_date,
+            end_date
           },
-          type_of_occurence,
-          days_of_occurence,
+          time_range: {
+            start_time,
+            end_time
+          },
+          curriculum_type,
+          custom_time,
+          curriculum,
+          curriculum_duration,
           session_profile3: true,
         },
       },

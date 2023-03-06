@@ -106,15 +106,18 @@ const trainee_schema = new schema({
     //session profile 2 ends
 
     //session profile 3 starts
-    days_of_occurence: {
-        default: [] ,
-        type : Array
+ 
+    date_range: {
+        start_date: {
+            type: String,
+            default : ""
+        },
+        end_date: {
+            type: String,
+            default : ""
+        }
     },
-    type_of_occurence: {
-        type: String,
-        default : ""
-    },
-    time_of_occurence: {
+    time_range: {
         start_time: {
             type: String,
             default : ""
@@ -123,10 +126,22 @@ const trainee_schema = new schema({
             type: String,
             default : ""
         }
+    },
+    curriculum_type: {
+        type: String,
+            default : ""
+    },
+    
+    custom_time: {
+        type: Boolean,
+        default : false
         
     },
-   
-    
+    curriculum: [{}],
+    curriculum_duration: {
+        default: 0,
+        type : Number
+    },
     session_profile3: {
         type: Boolean,
         default : false
@@ -136,21 +151,21 @@ const trainee_schema = new schema({
     //session profile 3 ends
 
     //session profile 4 starts
-    curriculum:[{}], 
+     
    
-    session_profile4: {
-        type: Boolean,
-        default : false
+    // session_profile4: {
+    //     type: Boolean,
+    //     default : false
         
-    },
-    curriculum_type: {
-        default: '',
-        type : String
-    } ,
-    curriculum_duration: {
-        default: 0,
-        type : Number
-    } ,
+    // },
+    // curriculum_type: {
+    //     default: '',
+    //     type : String
+    // } ,
+    // curriculum_duration: {
+    //     default: 0,
+    //     type : Number
+    // } ,
     
     // //session profile 3 starts
     // days_of_occurence: {
@@ -228,7 +243,7 @@ const trainee_schema = new schema({
         }
     },
    
-    session_profile5: {
+    session_profile4: {
         type: Boolean,
         default : false
         

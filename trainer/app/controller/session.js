@@ -160,7 +160,16 @@ const createtrainersession2Controller = async (req, res, next) => {
 };
 
 const createtrainersession3Controller = async (req, res, next) => {
-  const {  sessionId, days_of_occurence,type_of_occurence, traineeId, start_time, end_time} =
+  const {   sessionId,
+    traineeId,
+    curriculum,
+    curriculum_duration,
+    custom_time,
+    curriculum_type,
+    start_time,
+    end_time,
+    start_date,
+    end_date,} =
     req.body;
   try {
     const session = await trainersession.findOne({ _id: sessionId });
@@ -184,7 +193,16 @@ const createtrainersession3Controller = async (req, res, next) => {
     }
 
     const data = {
-        sessionId, days_of_occurence,type_of_occurence, traineeId, start_time, end_time
+      sessionId,
+      traineeId,
+      curriculum,
+      curriculum_duration,
+      custom_time,
+      curriculum_type,
+      start_time,
+      end_time,
+      start_date,
+      end_date,
     };
 
     let trainee = await create_trainer_session3_model(data, res);

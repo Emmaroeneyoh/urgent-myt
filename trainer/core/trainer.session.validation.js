@@ -83,11 +83,19 @@ const trainercreatesession3Validation = (req, res, next) => {
     traineeId: joi.string().required(),
     trainerId: joi.string().required(),
     sessionId: joi.string().required(),
-    days_of_occurence: joi.array().required(),
-    type_of_occurence: joi.string().required(),
+    curriculum: joi.array().required(),
+    curriculum_duration: joi.number().required(),
+    custom_time: joi.boolean().required(),
+    curriculum_type: joi.string().required(),
+    sessionId: joi.string().required(),
+   
     start_time: joi.string().required(),
     end_time: joi.string().required(),
+    start_date: joi.string().required(),
+    end_date: joi.string().required(),
   });
+
+
   const { error } = schema.validate(req.body);
   if (error) {
     let err = error.details[0].message;
